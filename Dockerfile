@@ -1,9 +1,10 @@
 # Builds an Alpine ppc64le image to be used in Alpine ppc64le CI
 
-FROM ppc64le/alpine:latest
+FROM ppc64le/alpine:edge
 MAINTAINER Roberto Oliveira
 
-RUN apk upgrade -U -a
+RUN apk add -U -u busybox
+RUN apk upgrade -a
 RUN apk add sudo
 
 RUN adduser -D -G root buildozer
